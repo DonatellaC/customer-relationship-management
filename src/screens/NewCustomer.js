@@ -1,9 +1,9 @@
 import { View, Text } from "react-native";
 
-export default function NewScreen() {
+export default function NewCustomer() {
   return (
     <View>
-      <Text>New Screen</Text>
+      <Text>Create a new customer</Text>
     </View>
   );
 }

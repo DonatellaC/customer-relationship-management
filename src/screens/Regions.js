@@ -1,9 +1,9 @@
 import { View, Text } from "react-native";
 
-export default function ListRegionsScreen() {
+export default function Regions() {
   return (
     <View>
-      <Text>List Regions Screen</Text>
+      <Text>Regions</Text>
     </View>
   );
 }
