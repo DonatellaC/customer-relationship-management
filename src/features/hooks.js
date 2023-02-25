@@ -13,3 +13,17 @@ export const useUpdateFields = () => {
     },
   };
 };
+
+export const useNewCustomer = () => {
+  const dispatch = useDispatch();
+
+  return {
+    resetForm: () => {
+      dispatch(actions.setForm());
+    },
+    onSubmit: () => {
+      console.log("Dispatching CREATE_CUSTOMER action");
+      dispatch(actions.createNewCustomer());
+    },
+  };
+};

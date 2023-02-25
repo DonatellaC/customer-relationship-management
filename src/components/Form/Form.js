@@ -1,11 +1,12 @@
 import React from "react";
 import { StyleSheet, View, TextInput } from "react-native";
-import { useUpdateFields } from "../../features/hooks.js";
+import { useNewCustomer, useUpdateFields } from "../../features/hooks.js";
 import { Button } from "../../components/Button/Button";
 import formStyles from "./styles";
 
-const Form = ({ disabled = false, onSubmit }) => {
+const Form = ({ disabled = false }) => {
   const styles = StyleSheet.create(formStyles());
+  const { onSubmit } = useNewCustomer();
   const { fields, setFormField } = useUpdateFields();
 
   const { firstName, lastName, region, contact } = fields;
@@ -66,7 +67,7 @@ const Form = ({ disabled = false, onSubmit }) => {
         }}
         onChangeText={setFormField("contact")}
       />
-      <Button onPress={() => console.log("Submit")}>Submit</Button>
+      <Button onPress={onSubmit}>Submit</Button>
     </View>
   );
 };
