@@ -1,16 +1,15 @@
+import { useDispatch, useSelector } from "react-redux";
+import * as actions from "./reducers";
+
 export const useUpdateFields = () => {
-  const fields = {
-    firstName: "",
-    lastName: "",
-    region: "",
-    contact: "",
-  };
+  const dispatch = useDispatch();
+  const fields = useSelector((state) => state.createNewCustomer.form.fields);
 
   return {
     fields,
     setFormField: (field, value) => {
       console.log(`Updating field ${field} to ${value}`);
-      fields[field] = value;
+      return dispatch(actions.setFormField({ field, value }));
     },
   };
 };

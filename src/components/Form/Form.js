@@ -1,12 +1,7 @@
 import React from "react";
-import {
-  StyleSheet,
-  View,
-  Text,
-  TextInput,
-  TouchableOpacity,
-} from "react-native";
+import { StyleSheet, View, TextInput } from "react-native";
 import { useUpdateFields } from "../../features/hooks.js";
+import { Button } from "../../components/Button/Button";
 import formStyles from "./styles";
 
 const Form = ({ disabled = false, onSubmit }) => {
@@ -71,10 +66,7 @@ const Form = ({ disabled = false, onSubmit }) => {
         }}
         onChangeText={(v) => setFormField("contact", v)}
       />
-
-      <TouchableOpacity onPress={onSubmit}>
-        <Text>Submit</Text>
-      </TouchableOpacity>
+      <Button onPress={() => console.log("Submit")}>Submit</Button>
     </View>
   );
 };

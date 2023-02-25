@@ -4,8 +4,10 @@ const stylesFn = () => {
   return StyleSheet.create({
     container: {
       backgrounColor: "#ddd",
-      color: "red",
       paddingTop: 14,
+      justifyContent: "center",
+      alignItems: "center",
+      margin: 10,
     },
   });
 };
