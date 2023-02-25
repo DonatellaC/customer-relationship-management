@@ -22,7 +22,7 @@ const Form = ({ disabled = false, onSubmit }) => {
           borderRadius: 4,
           padding: 15,
         }}
-        onChangeText={(v) => setFormField("firstName", v)}
+        onChangeText={setFormField("firstName")}
       />
 
       <View style={{ height: 15, width: "100%" }}></View>
@@ -37,7 +37,7 @@ const Form = ({ disabled = false, onSubmit }) => {
           borderRadius: 4,
           padding: 15,
         }}
-        onChangeText={(v) => setFormField("lastName", v)}
+        onChangeText={setFormField("lastName")}
       />
       <View style={{ height: 15, width: "100%" }}></View>
 
@@ -51,7 +51,7 @@ const Form = ({ disabled = false, onSubmit }) => {
           borderRadius: 4,
           padding: 15,
         }}
-        onChangeText={(v) => setFormField("region", v)}
+        onChangeText={setFormField("region")}
       />
       <View style={{ height: 15, width: "100%" }}></View>
       <TextInput
@@ -64,7 +64,7 @@ const Form = ({ disabled = false, onSubmit }) => {
           borderRadius: 4,
           padding: 15,
         }}
-        onChangeText={(v) => setFormField("contact", v)}
+        onChangeText={setFormField("contact")}
       />
       <Button onPress={() => console.log("Submit")}>Submit</Button>
     </View>
