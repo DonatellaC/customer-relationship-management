@@ -1,32 +1,20 @@
 import React from "react";
-import { Dimensions, StyleSheet, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
+import stylesFn from "./styles";
 
-const width = Dimensions.get("window").width;
-
-const Button = (props) => {
+const Button = ({ onPress, text, disabled }) => {
+  const styles = stylesFn({ disabled: disabled });
   return (
-    <TouchableOpacity style={styles.btnBody} onPress={props.onPress}>
-      <Text style={styles.btnText}>{props.children}</Text>
+    <TouchableOpacity
+      style={styles.btnBody}
+      disabled={disabled}
+      onPress={onPress}
+    >
+      <View>
+        <Text style={styles.btnText}>{text}</Text>
+      </View>
     </TouchableOpacity>
   );
 };
-
-const styles = StyleSheet.create({
-  btnBody: {
-    backgroundColor: "#3f51b5",
-    paddingVertical: 8,
-    width: width / 1.3,
-    borderRadius: 5,
-    height: 56,
-    justifyContent: "center",
-    alignItems: "center",
-    margin: 10,
-  },
-  btnText: {
-    color: "#FFFFFF",
-    fontSize: 16,
-    textAlign: "center",
-  },
-});
 
 export { Button };

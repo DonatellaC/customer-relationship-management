@@ -7,11 +7,15 @@ export default function Welcome() {
 
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Button onPress={() => navigate("Create")}>Create New Customer</Button>
-      <Button onPress={() => navigate("Regions")}>Go to Regions</Button>
-      <Button onPress={() => console.log("Delete database")}>
-        Delete Database
-      </Button>
+      <Button
+        onPress={() => navigate("Create")}
+        text="Create New Customer"
+      ></Button>
+      <Button onPress={() => navigate("Regions")} text="Go to Regions"></Button>
+      <Button
+        onPress={() => console.log("Delete database")}
+        text="Delete Database"
+      ></Button>
     </View>
   );
 }

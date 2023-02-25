@@ -62,17 +62,12 @@ const reducers = {
     state.edit.status = SUCCESS;
     state.list.customers = payload;
     state.form.fields = initialState.form.fields;
-    state.edit = initialState.edit;
   },
   editCustomerError: (state) => {
     state.edit.status = ERROR;
     state.error.message = payload;
     state.form.fields = initialState.form.fields;
   },
-  editcCustomerReset: (state) => {
-    state.edit = initialState.edit;
-  },
-
   editCustomerStatus: (state, { payload }) => {
     state.edit = payload;
   },
@@ -105,7 +100,6 @@ export const {
   editCustomer,
   editCustomerResult,
   editCustomerError,
-  editCustomerReset,
   editCustomerStatus,
   setFormField,
 } = slice.actions;

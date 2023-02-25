@@ -1,21 +1,15 @@
 import React from "react";
-import { View, TextInput } from "react-native";
-import { useNavigation } from "@react-navigation/native";
-import { useUpdateFields } from "../../features/hooks.js";
+import { StyleSheet, View, TextInput } from "react-native";
+import { useNewCustomer, useUpdateFields } from "../../features/hooks.js";
 import { Button } from "../../components/Button/Button";
 import formStyles from "./styles";
 
-const Form = ({ handleSubmit, status, customerID }) => {
-  const styles = formStyles();
-  const { navigate } = useNavigation();
-  const { fields, setFormField } = useUpdateFields(customerID);
+const Form = ({ disabled = false }) => {
+  const styles = StyleSheet.create(formStyles());
+  const { onSubmit } = useNewCustomer();
+  const { fields, setFormField } = useUpdateFields();
 
   const { firstName, lastName, region, contact } = fields;
-
-  const onSubmit = () => {
-    handleSubmit();
-    navigate("Customers");
-  };
 
   return (
     <View style={styles.container}>
@@ -73,7 +67,7 @@ const Form = ({ handleSubmit, status, customerID }) => {
         }}
         onChangeText={setFormField("contact")}
       />
-      <Button onPress={onSubmit}>Submit</Button>
+      <Button onPress={onSubmit} text="Submit" />
     </View>
   );
 };
