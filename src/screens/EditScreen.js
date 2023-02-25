@@ -1,9 +1,5 @@
-import { View, Text } from "react-native";
+import Edit from "../features/Edit";
 
 export default function EditScreen() {
-  return (
-    <View>
-      <Text>Edit Screen</Text>
-    </View>
-  );
+  return <Edit />;
 }
