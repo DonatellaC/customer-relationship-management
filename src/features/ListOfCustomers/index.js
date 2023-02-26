@@ -1,11 +1,13 @@
 import React from "react";
 import { View, Text, FlatList } from "react-native";
-import { useRoute } from "@react-navigation/native";
+import { useRoute, useNavigation } from "@react-navigation/native";
 import stylesFn from "./styles";
 import ShowCustomerCard from "../../components/ShowCustomerCard";
+import { Button } from "../../components/Button/Button";
 
 const ListOfCustomers = () => {
   const route = useRoute();
+  const { navigate } = useNavigation();
   const styles = stylesFn();
   const { region, filteredCustomers } = route.params;
 
@@ -28,6 +30,10 @@ const ListOfCustomers = () => {
       ) : (
         <Text style={styles.noCustomers}>No customers in {region}</Text>
       )}
+      <Button
+        onPress={() => navigate("Create")}
+        text="Create New Customer"
+      ></Button>
     </View>
   );
 };
