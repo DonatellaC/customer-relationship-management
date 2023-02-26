@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, TextInput } from "react-native";
+import { StyleSheet, View, TextInput, Picker } from "react-native";
 import { useNewCustomer, useUpdateFields } from "../../features/hooks.js";
 import { Button } from "../../components/Button/Button";
 import formStyles from "./styles";
@@ -10,6 +10,13 @@ const Form = ({ disabled = false }) => {
   const { fields, setFormField } = useUpdateFields();
 
   const { firstName, lastName, region, contact } = fields;
+  const regions = [
+    "South West",
+    "North West",
+    "South East",
+    "North East",
+    "Mid West",
+  ];
 
   return (
     <View style={styles.container}>
@@ -17,12 +24,7 @@ const Form = ({ disabled = false }) => {
         key={"firstName"}
         placeholder="First Name"
         value={firstName}
-        style={{
-          borderWidth: 1,
-          borderColor: "black",
-          borderRadius: 4,
-          padding: 15,
-        }}
+        style={styles.textInput}
         onChangeText={setFormField("firstName")}
       />
 
@@ -32,41 +34,33 @@ const Form = ({ disabled = false }) => {
         key={"lastName"}
         placeholder="Last Name"
         value={lastName}
-        style={{
-          borderWidth: 1,
-          borderColor: "black",
-          borderRadius: 4,
-          padding: 15,
-        }}
+        style={styles.textInput}
         onChangeText={setFormField("lastName")}
       />
+
       <View style={{ height: 15, width: "100%" }}></View>
 
-      <TextInput
-        key={"region"}
-        placeholder="Region"
-        value={region}
-        style={{
-          borderWidth: 1,
-          borderColor: "black",
-          borderRadius: 4,
-          padding: 15,
-        }}
-        onChangeText={setFormField("region")}
-      />
+      <Picker
+        selectedValue={region}
+        onValueChange={(itemValue) => setFormField("region")(itemValue)}
+        style={styles.picker}
+      >
+        <Picker.Item label="Select a region" value="" />
+        {regions.map((region) => (
+          <Picker.Item key={region} label={region} value={region} />
+        ))}
+      </Picker>
+
       <View style={{ height: 15, width: "100%" }}></View>
+
       <TextInput
         key={"contact"}
         placeholder="Contact"
         value={contact}
-        style={{
-          borderWidth: 1,
-          borderColor: "black",
-          borderRadius: 4,
-          padding: 15,
-        }}
+        style={styles.textInput}
         onChangeText={setFormField("contact")}
       />
+
       <Button onPress={onSubmit} text="Submit" />
     </View>
   );
