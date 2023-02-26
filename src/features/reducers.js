@@ -12,7 +12,7 @@ const initialState = {
     fields: {
       first_name: "",
       last_name: "",
-      region: "Region 1",
+      region: "",
       contact: "",
     },
   },

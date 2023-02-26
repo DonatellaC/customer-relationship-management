@@ -1,9 +1,10 @@
-import { View, Text } from "react-native";
+import { View } from "react-native";
+import RegionsList from "../features/RegionsList/index";
 
 export default function Regions() {
   return (
     <View>
-      <Text>Regions</Text>
+      <RegionsList />
     </View>
   );
 }

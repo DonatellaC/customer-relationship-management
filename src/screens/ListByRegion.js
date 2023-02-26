@@ -1,9 +1,10 @@
-import { View, Text } from "react-native";
+import { View } from "react-native";
+import ListOfCustomers from "../features/ListOfCustomers";
 
 export default function ListByRegion() {
   return (
     <View>
-      <Text>List By Region</Text>
+      <ListOfCustomers />
     </View>
   );
 }

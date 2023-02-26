@@ -2,6 +2,7 @@ import React from "react";
 import { StyleSheet, View, TextInput, Picker } from "react-native";
 import { useNewCustomer, useUpdateFields } from "../../features/hooks.js";
 import { Button } from "../../components/Button/Button";
+import regions from "../../utilities/regions";
 import formStyles from "./styles";
 
 const Form = ({ disabled = false }) => {
@@ -10,13 +11,6 @@ const Form = ({ disabled = false }) => {
   const { fields, setFormField } = useUpdateFields();
 
   const { firstName, lastName, region, contact } = fields;
-  const regions = [
-    "South West",
-    "North West",
-    "South East",
-    "North East",
-    "Mid West",
-  ];
 
   return (
     <View style={styles.container}>

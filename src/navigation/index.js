@@ -17,7 +17,7 @@ const Navigation = () => {
         <Stack.Screen name="Welcome" component={WelcomeScreen} />
         <Stack.Screen name="Create" component={NewCustomer} />
         <Stack.Screen name="Edit" component={EditScreen} />
-        <Stack.Screen name="ListByRegion" component={ListByRegion} />
+        <Stack.Screen name="Customers By Region" component={ListByRegion} />
         <Stack.Screen name="Regions" component={Regions} title="Regions" />
         <Stack.Screen name="Show" component={ShowScreen} />
       </Stack.Navigator>
