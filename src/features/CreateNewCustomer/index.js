@@ -1,10 +1,12 @@
 import { View } from "react-native";
+import { useNewCustomer } from "../hooks";
 import Form from "../../components/Form/Form";
 
 const CreateNewCustomer = () => {
+  const { onSubmit } = useNewCustomer();
   return (
     <View>
-      <Form />
+      <Form handleSubmit={onSubmit} />
     </View>
   );
 };

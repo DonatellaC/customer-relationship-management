@@ -1,21 +1,21 @@
 import { StyleSheet } from "react-native";
 
-const stylesFn = () => {
-  return StyleSheet.create({
-    container: {
-      flex: 1,
+const stylesFn = () =>
+  StyleSheet.create({
+    customerContainer: {
+      borderWidth: 1,
+      borderColor: "#ccc",
       padding: 10,
-    },
-    header: {
-      fontSize: 20,
-      fontWeight: "bold",
       marginBottom: 10,
+    },
+    customerDetails: {
+      fontSize: 18,
+      marginBottom: 5,
     },
     noCustomers: {
       fontSize: 18,
       marginTop: 10,
     },
   });
-};
 
 export default stylesFn;

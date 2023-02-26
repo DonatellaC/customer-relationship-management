@@ -1,9 +1,10 @@
-import { View, Text } from "react-native";
+import { View } from "react-native";
+import ShowCustomerCard from "../components/ShowCustomerCard";
 
 export default function ShowScreen() {
   return (
     <View>
-      <Text>Show Screen</Text>
+      <ShowCustomerCard />
     </View>
   );
 }

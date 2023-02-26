@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as actions from "./reducers";
 
@@ -35,4 +36,16 @@ export const useEditCustomer = (customerID) => {
       dispatch(actions.editCustomer(customerID));
     },
   };
+};
+
+export const useLoadCustomers = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(actions.loadCustomers());
+  }, [dispatch]);
+
+  console.log("Dispatching LOAD_CUSTOMER action");
+
+  return useSelector((state) => state.createNewCustomer.list.customers);
 };
