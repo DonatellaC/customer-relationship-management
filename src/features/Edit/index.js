@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { View } from "react-native";
 import { useRoute } from "@react-navigation/native";
 import { useUpdateFields, useEditCustomer } from "../hooks";
@@ -7,15 +8,20 @@ import Form from "../../components/Form/Form";
 export default function Edit() {
   const { customer } = useRoute().params;
   const { fields, setFormField } = useUpdateFields();
+  const { onSubmit } = useEditCustomer(customer?.id);
 
   useEffect(() => {
-    setFormField("firstName", customer?.firstName);
-    setFormField("lastName", customer?.lastName);
-    setFormField("region", customer?.region);
-    setFormField("contact", customer?.contact);
-  }, [customer]);
-  const { onSubmit } = useEditCustomer();
-  console.log(customer, "***Edit component, customer");
+    console.log("customer in useEffect", customer);
+
+    setFormField("firstName", customer.firstName);
+    setFormField("lastName", customer.lastName);
+    setFormField("region", customer.region);
+    setFormField("contact", customer.contact);
+  }, [customer, setFormField]);
+
+  console.log("fields- Edit", fields);
+  console.log("customer", customer);
+  console.log(customer.firstName, "***Edit component, customer.firstName");
 
   return (
     <View>
@@ -25,7 +31,7 @@ export default function Edit() {
         region={fields.region}
         contact={fields.contact}
         setFormField={setFormField}
-        onSubmit={onSubmit}
+        handleSubmit={onSubmit}
       />
     </View>
   );

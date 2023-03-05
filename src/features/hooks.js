@@ -38,7 +38,7 @@ export const useEditCustomer = (customerID) => {
         `Dispatching EDIT_CUSTOMER action with id=${customerID}`,
         fields
       );
-      dispatch(actions.editCustomer(customerID));
+      dispatch(actions.editCustomer({ id: customerID, ...fields }));
     },
   };
 };

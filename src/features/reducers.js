@@ -50,10 +50,10 @@ const reducers = {
     state.create = initialState.create;
   },
   setForm: (state, { payload }) => {
-    const customer = state.list.customers.find((a) => (a.id = payload));
+    const customer = state.list.customers.find((a) => a.id === payload);
 
     if (customer) {
-      state.form.fields = customer;
+      state.form.fields = { ...customer };
     } else {
       state.error.message = `Could not find customer with id: ${payload}`;
     }
@@ -70,7 +70,7 @@ const reducers = {
   editCustomerStatus: (state, { payload }) => {
     state.edit = payload;
   },
-  editCustomerError: (state) => {
+  editCustomerError: (state, { payload }) => {
     state.edit.status = ERROR;
     state.error.message = payload;
     state.form.fields = initialState.form.fields;
