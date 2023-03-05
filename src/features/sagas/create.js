@@ -8,10 +8,8 @@ export function* watchCreateNewCustomer() {
 
 export function* takeCreateNewCustomer() {
   try {
-    const fields = yield select((state) => state.createNewCustomer.form.fields);
-    const customers = yield select(
-      (state) => state.createNewCustomer.list.customers
-    );
+    const fields = yield select((state) => state.customer.form.fields);
+    const customers = yield select((state) => state.customer.list.customers);
 
     const createNewCustomer = {
       id: customers.length + 1,

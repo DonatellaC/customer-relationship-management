@@ -1,8 +1,8 @@
 import { combineReducers } from "@reduxjs/toolkit";
-import createNewCustomer from "../features/reducers";
+import customer from "../features/reducers";
 
 const rootReducer = combineReducers({
-  createNewCustomer,
+  customer,
 });
 
 export default rootReducer;

@@ -49,30 +49,31 @@ const reducers = {
   createNewCustomerReset: (state) => {
     state.create = initialState.create;
   },
-  editCustomer: (state) => {
-    state.edit.status = REQUESTING;
-  },
   setForm: (state, { payload }) => {
     const customer = state.list.customers.find((a) => (a.id = payload));
 
     if (customer) {
       state.form.fields = customer;
     } else {
-      state.error.message = `could not find customer with id: ${payload}`;
+      state.error.message = `Could not find customer with id: ${payload}`;
     }
+  },
+  editCustomer: (state) => {
+    state.edit.status = REQUESTING;
   },
   editCustomerResult: (state, { payload }) => {
     state.edit.status = SUCCESS;
     state.list.customers = payload;
     state.form.fields = initialState.form.fields;
+    state.edit = initialState.edit;
+  },
+  editCustomerStatus: (state, { payload }) => {
+    state.edit = payload;
   },
   editCustomerError: (state) => {
     state.edit.status = ERROR;
     state.error.message = payload;
     state.form.fields = initialState.form.fields;
-  },
-  editCustomerStatus: (state, { payload }) => {
-    state.edit = payload;
   },
   deleteCustomers: (state) => {
     state.delete.status = "REQUESTING";

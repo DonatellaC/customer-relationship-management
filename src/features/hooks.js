@@ -4,7 +4,7 @@ import * as actions from "./reducers";
 
 export const useUpdateFields = () => {
   const dispatch = useDispatch();
-  const fields = useSelector((state) => state.createNewCustomer.form.fields);
+  const fields = useSelector((state) => state.customer.form.fields);
 
   return {
     fields,
@@ -29,13 +29,26 @@ export const useNewCustomer = () => {
 
 export const useEditCustomer = (customerID) => {
   const dispatch = useDispatch();
+  const status = useEditCustomerStatus();
 
   return {
-    onSubmit: () => {
-      console.log("Dispatching EDIT_CUSTOMER action");
+    status,
+    onSubmit: (fields) => {
+      console.log(
+        `Dispatching EDIT_CUSTOMER action with id=${customerID}`,
+        fields
+      );
       dispatch(actions.editCustomer(customerID));
     },
   };
+};
+
+export const useEditCustomerStatus = () => {
+  return useSelector((state) => state.customer.edit.status);
+};
+
+export const useListCustomers = () => {
+  return useSelector((state) => state.customer.list.customers);
 };
 
 export const useLoadCustomers = () => {
@@ -47,5 +60,5 @@ export const useLoadCustomers = () => {
 
   console.log("Dispatching LOAD_CUSTOMER action");
 
-  return useSelector((state) => state.createNewCustomer.list.customers);
+  return useSelector((state) => state.customer.list.customers);
 };

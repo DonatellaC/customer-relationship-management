@@ -11,19 +11,29 @@ const ListOfCustomers = () => {
   const styles = stylesFn();
   const { region, filteredCustomers } = route.params;
 
+  const handleCustomerEdit = (customer) => {
+    console.log(
+      filteredCustomers,
+      "**************filteredCustomers - from ListOfCustomers"
+    );
+    console.log(customer, "**************Edit-customer - Customer");
+    navigate("Edit", { customer: customer });
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.header}>Customers in {region}</Text>
       {filteredCustomers.length > 0 ? (
         <FlatList
-          data={filteredCustomers}
+          data={filteredCustomers || []}
           keyExtractor={(customer) => customer.id.toString()}
           renderItem={({ item: customer }) => (
             <ShowCustomerCard
-              onPress={() => onPress(customer)}
-              firstName={customer.firstName}
-              lastName={customer.lastName}
-              region={customer.region}
+              onPress={() => handleCustomerEdit(customer)}
+              firstName={customer?.firstName}
+              lastName={customer?.lastName}
+              region={customer?.region}
+              customer={customer}
             />
           )}
         />
