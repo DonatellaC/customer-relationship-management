@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { PENDING, REQUESTING, SUCCESS, ERROR } from "../utilities/helpers";
 
-const name = "createNewCustomer";
+const name = "customer";
 
 const initialState = {
   list: {
